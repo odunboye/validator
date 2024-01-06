@@ -11,29 +11,46 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Dart/Flutter package for validating input strings.
+
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+ Validates the following :
+- Empty String
+- Name
+- Email
+- Password
+- Confirm password
+- Telephone number
+- Amount (with optional least value)
+- Any value less than, greater than or in between 2 values
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```dart
+dependencies: 
+    validator: '^1.0.0'
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Null result means String passes validation \
+Message result means valdation failed
 
 ```dart
-const like = 'sample';
+import 'package:validator/validator.dart';
+
+void main() {
+  var defaultValidator = DefaultValidator();
+  print('result: ${defaultValidator.validateEmail('@a.com')}');
+  print('result: ${defaultValidator.validateEmail('a@a')}');
+  print('result: ${defaultValidator.validateEmail('a@a.com')}');
+  print('result: ${defaultValidator.validateEmail('john@john.com')}');
+}
+
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+Contributions, Pull request, feature requests are welcome 
