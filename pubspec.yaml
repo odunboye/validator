@@ -1,5 +1,5 @@
 name: validator
-description: A starting point for Dart libraries or applications.
+description: A Dart/Flutter package for validating input strings.
 version: 1.0.0
 repository: https://github.com/odunboye/validator
 
