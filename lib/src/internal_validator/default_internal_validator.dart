@@ -25,7 +25,7 @@ class DefaultInternalValidator implements InternalValidator {
       return false;
     }
     final res = double.tryParse(s);
-    if (!res!.isNaN) {
+    if (res != null) {
       return true;
     }
     return false;
