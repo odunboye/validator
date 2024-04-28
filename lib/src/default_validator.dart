@@ -54,10 +54,13 @@ class DefaultValidator implements ValidatorBase {
   }
 
   @override
-  String? validateAmount(String? value, [double? leastValue = 0]) {
-    if (value == null) {
+  String? validateAmount(String? val, [double? leastValue = 0]) {
+    if (val == null) {
       return 'Please enter amount';
     }
+
+    final value = val.trim().replaceAll(',', '');
+
     if (!_.isNumeric(value)) {
       return 'Please enter amount';
     }
