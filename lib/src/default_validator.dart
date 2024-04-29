@@ -54,7 +54,8 @@ class DefaultValidator implements ValidatorBase {
   }
 
   @override
-  String? validateAmount(String? val, [double? leastValue = 0]) {
+  String? validateAmount(String? val,
+      [double leastValue = 0, double? maxValue]) {
     if (val == null) {
       return 'Please enter amount';
     }
@@ -71,9 +72,15 @@ class DefaultValidator implements ValidatorBase {
 
     final valueNumber = double.parse(value);
 
-    if (valueNumber <= leastValue!) {
-      return 'Enter Value greater than $leastValue';
+    if (valueNumber < leastValue) {
+      return 'Enter value greater than $leastValue';
     }
+    if (maxValue != null) {
+      if (valueNumber > maxValue) {
+        return '$valueNumber cannot be greater than $maxValue';
+      }
+    }
+
     return null;
   }
 
